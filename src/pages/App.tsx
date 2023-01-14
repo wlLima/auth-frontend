@@ -1,10 +1,14 @@
 import { GlobalStyleCss } from "../styles/GlobalStyle";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from '../router'
 
 function App() {
   return (
     <div className="App">
-      <GlobalStyleCss />
-      <h1>Boilerplate vite react typescript</h1>
+      <Router>
+        <GlobalStyleCss />
+        <Routes />
+      </Router>
     </div>
   );
 }
