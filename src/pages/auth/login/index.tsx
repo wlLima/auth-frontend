@@ -1,8 +1,8 @@
 export default function Login(){
     return(
         <div>
-            <input type="text" name="email" id="email" />
-            <input type="password" name="password" id="password" />
+            <input type="email" name="email" id="email" placeholder="Email"/>
+            <input type="password" name="password" id="password" placeholder="Senha" />
             <button type="submit">Entrar</button>
             <a href="/register">Registrar-se</a>
         </div>
