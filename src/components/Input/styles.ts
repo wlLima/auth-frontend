@@ -7,6 +7,6 @@ export const TextField = styled.input`
     padding: 10px;
 
     &:focus-visible{
-      outline-color: #007FFF;
+      outline-color: #ea2845;
     } 
 `
