@@ -9,6 +9,7 @@ export const LoginForm = styled.form`
     width: 40%;
     height: 100vh;
     gap: 0.8rem;
+    box-shadow: 1px 0px 5px 5px rgba(0,0,0, 0.3);
 
     div{
         display: flex;
@@ -24,6 +25,10 @@ export const Title = styled.h2`
 export const Container = styled.div`
     display: flex;
     flex-direction: row;
+
+    .input-container{
+        width: 60%;
+    }
 `
 
 export const Banner = styled.div`

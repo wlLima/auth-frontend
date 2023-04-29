@@ -1,6 +1,6 @@
 import { Container, Banner, LoginForm, Title } from './styles'
-import Button from '@mui/material/Button';
 import Input from '../../../components/Input'
+import ButtonSubmit from '../../../components/ButtonSubmit';
 
 export default function Login(){
     return(
@@ -12,11 +12,11 @@ export default function Login(){
 					<div>
 						<Title>Login</Title>
 					</div>
-					<div>
+					<div className="input-container">
 						<Input type="email" name="email" id="email" placeholder="Email" />
 						<Input type="password" name="password" id="password" placeholder="Senha" />
 					</div>
-					<Button type="submit" variant="outlined">Entrar</Button>
+					<ButtonSubmit type="submit" variant="outlined" text="Entrar" />
 					<a href="/register">Registrar-se</a>
 				</LoginForm>
 			</Container>
