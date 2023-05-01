@@ -2,30 +2,19 @@ import { Container, Banner, LoginForm, Title } from './styles'
 import Input from '../../../components/Input'
 import ButtonSubmit from '../../../components/ButtonSubmit';
 import { AuthService } from '../../../services/Auth/AuthService';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/Auth';
 
 export default function Login(){
 
-	function handleSubmit(event: React.FormEvent<HTMLFormElement>){
-		event.preventDefault()
-
-		const {email, password } = document.forms[0]
-		
-		const data = {
-			email: email.value,
-			password: password.value
-		}
-		
-		AuthService.login(data).then((response) => {
-			console.log(response)
-		})
-	}
+	const Auth = useContext(AuthContext)
 
 	return(
 		<Container>
 			<Banner>
 				teste
 			</Banner>
-			<LoginForm onSubmit={(event) => handleSubmit(event)}>
+			<LoginForm onSubmit={(event) => Auth?.handleSubmit(event)}>
 				<div>
 					<Title>Login</Title>
 				</div>

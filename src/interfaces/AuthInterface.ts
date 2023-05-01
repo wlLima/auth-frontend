@@ -4,5 +4,5 @@ export interface ILogin{
 }
 
 export type Auth = {
-  login: ILogin;
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
