@@ -33,6 +33,12 @@ export const Container = styled.div`
 
 export const Banner = styled.div`
     display: flex;
+    justify-content: center;
     width: 80%;
     background-color: #ea2845;
+
+    .banner-image{
+        width: inherit;
+        max-width: 80vh;
+    }
 `

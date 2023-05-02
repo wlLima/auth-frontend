@@ -1,9 +1,9 @@
 import { Container, Banner, LoginForm, Title } from './styles'
 import Input from '../../../components/Input'
 import ButtonSubmit from '../../../components/ButtonSubmit';
-import { AuthService } from '../../../services/Auth/AuthService';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/Auth';
+import Icon from '../../../assets/Fingerprint-bro.svg'
 
 export default function Login(){
 
@@ -12,7 +12,7 @@ export default function Login(){
 	return(
 		<Container>
 			<Banner>
-				teste
+				<img src={Icon} alt="teste" className='banner-image'/>
 			</Banner>
 			<LoginForm onSubmit={(event) => Auth?.handleSubmit(event)}>
 				<div>
@@ -22,7 +22,7 @@ export default function Login(){
 					<Input type="email" name="email" id="email" placeholder="Email" />
 					<Input type="password" name="password" id="password" placeholder="Senha" />
 				</div>
-				<ButtonSubmit type="submit" variant="outlined" text="Entrar" />
+				<ButtonSubmit type="submit" text="Entrar" />
 				<a href="/register">Registrar-se</a>
 			</LoginForm>
 		</Container>
