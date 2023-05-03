@@ -10,7 +10,7 @@ export const AuthContext = createContext<Auth | null>(null)
 
 export default function AuthProvider({children}: AuxProps){
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>){
+  function handleLogin(event: React.FormEvent<HTMLFormElement>){
 		event.preventDefault()
 
 		const {email, password } = document.forms[0]
@@ -24,9 +24,27 @@ export default function AuthProvider({children}: AuxProps){
 			console.log(response)
 		})
 	}
+
+	function handleRegister(event: React.FormEvent<HTMLFormElement>){
+		event.preventDefault()
+
+		const { born, username, email, password } = document.forms[0]
+
+		const data = {
+			name: username.value,
+			email: email.value,
+			password: password.value,
+			born: born.value
+		}
+
+		AuthService.register(data).then((response) => {
+			console.log(response.data);
+		})
+
+	}
   
   return(
-    <AuthContext.Provider value={{handleSubmit}}>
+    <AuthContext.Provider value={{handleLogin, handleRegister}}>
       {children}
     </AuthContext.Provider>
   )
