@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { Auth } from '../interfaces/AuthInterface'
 import { AuthService } from "../services/Auth/AuthService";
+import Toast from '../utils/toast'
 
 interface AuxProps{
   children: React.ReactNode
@@ -22,6 +23,8 @@ export default function AuthProvider({children}: AuxProps){
 		
 		AuthService.login(data).then((response) => {
 			console.log(response)
+		}).catch((error) =>{
+			error.response.status === 401 && Toast.error("Email ou senha estão incorretos!")
 		})
 	}
 
