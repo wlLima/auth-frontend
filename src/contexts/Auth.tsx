@@ -2,6 +2,7 @@ import { createContext } from "react";
 import { Auth } from '../interfaces/AuthInterface'
 import { AuthService } from "../services/Auth/AuthService";
 import Toast from '../utils/toast'
+import axios from 'axios';
 
 interface AuxProps{
   children: React.ReactNode
@@ -22,7 +23,13 @@ export default function AuthProvider({children}: AuxProps){
 		}
 		
 		AuthService.login(data).then((response) => {
-			console.log(response)
+
+				if(response.status === 200){
+					localStorage.setItem('token', response.data.access_token)
+					axios.defaults.headers.common = {'Authorization': `Bearer ${response.data.access_token}`}
+					window.location.replace(`${window.location.href}register`);
+				}
+
 		}).catch((error) =>{
 			error.response.status === 401 && Toast.error("Email ou senha estão incorretos!")
 		})
