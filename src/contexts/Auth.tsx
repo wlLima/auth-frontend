@@ -25,9 +25,12 @@ export default function AuthProvider({children}: AuxProps){
 		AuthService.login(data).then((response) => {
 
 				if(response.status === 200){
-					localStorage.setItem('token', response.data.access_token)
-					axios.defaults.headers.common = {'Authorization': `Bearer ${response.data.access_token}`}
-					window.location.replace(`${window.location.href}register`);
+					const { access_token, ...userData } = response.data 
+					
+					localStorage.setItem('token', access_token)
+					localStorage.setItem('user', JSON.stringify(userData))
+					axios.defaults.headers.common = {'Authorization': `Bearer ${access_token}`}
+					window.location.replace(`${window.location.href}home`);
 				}
 
 		}).catch((error) =>{
