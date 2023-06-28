@@ -1,9 +1,20 @@
+
 # auth-frontend
 
-1º - Instale as depedências com o seguinte comando:  
+Projeto desenvolvido para treinar e aplicar conceitos de autenticação que utilizei enquanto trabalhava com react.
 
-"npm install" ou "yarn"
 
-2º - Rode o projeto com o seguinte comando:
+## Instalação
 
-"yarn dev" ou "npm run dev"
+Instale o projeto com npm:
+
+```bash
+  npm install 
+```
+
+para rodar o projeto:
+
+```bash
+  npm run dev
+```
+
